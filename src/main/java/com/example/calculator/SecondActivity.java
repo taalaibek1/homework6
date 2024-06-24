@@ -1,3 +1,6 @@
+// Я еще доделал код при нажатие на сердечко будет цвет меняться. 
+
+
 package com.example.calculator;
 
 import android.graphics.drawable.Drawable;
