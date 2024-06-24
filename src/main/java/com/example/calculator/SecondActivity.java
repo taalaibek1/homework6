@@ -1,20 +1,25 @@
 package com.example.calculator;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 
 public class SecondActivity extends AppCompatActivity {
+
+    private boolean isClicked=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,25 @@ double result = getIntent().getDoubleExtra("result", 0);
         }else{
     textView.setText(String.valueOf(result));
         }
+
+        ImageView imageView =  findViewById(R.id.favorite);
+        imageView.setOnClickListener(view -> {
+           /* Drawable drawable = imageView.getDrawable();
+            drawable.setTint(ContextCompat.getColor(this, R.color.black));*/
+            Drawable drawable = imageView.getDrawable();
+            if(isClicked){
+                drawable.setTint(ContextCompat.getColor(this, R.color.black));
+
+            }
+            else{
+
+                drawable.setTint(ContextCompat.getColor(this, R.color.pink));
+
+            }
+            isClicked = !isClicked;
+        });
+
+
 
 
 
@@ -47,6 +71,9 @@ double result = getIntent().getDoubleExtra("result", 0);
     }
 
     public void onNextClick(View view) {
-finishAffinity();
+         finishAffinity();
     }
+
+
+
 }
